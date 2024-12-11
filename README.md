@@ -7,4 +7,5 @@ Developer-edited files:
 - CalculatorForm.cs
 - CalculatorForm.Designer.cs
 - README.md
+
 Note that the project only has one developer, so it takes time to make improvements. That also means the limitations are bound to said one developer. Other part-time obligations, such as other projects and studies related to programming, also interfere with the ability of this project to continue properly. Notes on the project have been updated, and it will be considered a priority.
