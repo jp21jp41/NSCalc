@@ -1,0 +1,16 @@
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\bin\Debug\net8.0-windows\CalcFormApp.exe
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\bin\Debug\net8.0-windows\CalcFormApp.deps.json
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\bin\Debug\net8.0-windows\CalcFormApp.runtimeconfig.json
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\bin\Debug\net8.0-windows\CalcFormApp.dll
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\bin\Debug\net8.0-windows\CalcFormApp.pdb
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\WinFormsApp1.Form1.resources
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.csproj.GenerateResource.cache
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.AssemblyInfoInputs.cache
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.AssemblyInfo.cs
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.csproj.CoreCompileInputs.cache
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.dll
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\refint\CalcFormApp.dll
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.pdb
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\CalcFormApp.genruntimeconfig.cache
+C:\Users\justi\source\repos\CalcFormApp\CalcFormApp\obj\Debug\net8.0-windows\ref\CalcFormApp.dll
