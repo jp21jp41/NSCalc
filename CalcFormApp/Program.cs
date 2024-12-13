@@ -1,4 +1,4 @@
-namespace WinFormsApp1
+namespace CalcFormApp
 {
     internal static class Program
     {
