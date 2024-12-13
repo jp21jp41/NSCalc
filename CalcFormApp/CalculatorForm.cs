@@ -4,7 +4,7 @@ using System.Numerics;
 using System.Runtime.Serialization;
 using Microsoft.VisualBasic.Devices;
 
-namespace WinFormsApp1
+namespace CalcFormApp
 {
     public partial class Form1 : Form
     {
@@ -35,7 +35,8 @@ namespace WinFormsApp1
 
         private void SVButton_Click(object sender, EventArgs e)
         {
-
+            
+            CalcText.Text = "";
         }
 
         private void DecButton_Click(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace WinFormsApp1
         }
 
         private void Compute(string value1 = "0", string value2 = "0", 
-            string system = "0", int i = 0)
+            string system = "Decimal", int i = 0)
         {
             List<string> systems = ["Decimal", "Hexadecimal", "Binary"];
             int systemnum = systems.IndexOf(system);
@@ -64,23 +65,51 @@ namespace WinFormsApp1
                     switch (i)
                     {
                         case 0:
-                            int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
-                            ErrorLabel.Text = Convert.ToString(result);
+                            try
+                            {
+                                int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+                                TestLabel.Text = Convert.ToString(result);
+                            }
+                            catch
+                            {
+                                TestLabel.Text = value1;
+                            }
                             break;
                         case 1:
-                            result = Convert.ToInt32(value1) / Convert.ToInt32(value2);
-                            ErrorLabel.Text = Convert.ToString(result);
+                            try
+                            {
+                                int result = Convert.ToInt32(value1) / Convert.ToInt32(value2);
+                                TestLabel.Text = Convert.ToString(result);
+                            }
+                            catch
+                            {
+                                TestLabel.Text = value1;
+                            }
                             break;
                         case 2:
-                            result = Convert.ToInt32(value1) + Convert.ToInt32(value2);
-                            ErrorLabel.Text = Convert.ToString(result);
+                            try
+                            {
+                                int result = Convert.ToInt32(value1) + Convert.ToInt32(value2);
+                                TestLabel.Text = Convert.ToString(result);
+                            }
+                            catch 
+                            {
+                                TestLabel.Text = value1;
+                            }
                             break;
                         case 3:
-                            result = Convert.ToInt32(value1) - Convert.ToInt32(value2);
-                            ErrorLabel.Text = Convert.ToString(result);
+                            try
+                            {
+                                int result = Convert.ToInt32(value1) - Convert.ToInt32(value2);
+                                TestLabel.Text = Convert.ToString(result);
+                            }
+                            catch
+                            {
+                                TestLabel.Text = value1;
+                            }
                             break;
                         default:
-                            ErrorLabel.Text = value1;
+                            TestLabel.Text = value1;
                             break;
                     }
                     break;
@@ -94,12 +123,13 @@ namespace WinFormsApp1
         private void CalcText_TextChanged(object sender, EventArgs e)
         {
             Text = CalcText.Text;
-            int Length = Text.Length;
+            int end = Text.Length - 1;
             try
             {
-                if (Length == Text.LastIndexOf("="))
+                if (end == Text.LastIndexOf("="))
                 {
-                    ExpressionRunner(Text[..(Length - 1)]);
+                    ExpressionRunner(Text[..end]);
+                    CalcText.Text = TestLabel.Text;
                 }
                 else
                 {
@@ -114,7 +144,8 @@ namespace WinFormsApp1
 
         private void ExpressionRunner(string text)
         {
-            char[] operators = { '*', '/', '-', '+' };
+            char[] operators = { '*', '/', '+', '-' };
+            string op_str = "*/+-";
             if (text.IndexOfAny(operators) == 0 |
                 text.IndexOfAny(operators) == text.Length)
             {
@@ -122,39 +153,18 @@ namespace WinFormsApp1
             }
             else
             {
-                if (text.IndexOfAny(operators) != -1)
+                int op1 = text.IndexOfAny(operators);
+                int opvalue = op_str.IndexOf(text[op1]);
+                ErrorLabel.Text = Convert.ToString(opvalue);
+                string LHS = text[..op1];
+                try
                 {
-                    string PartialOne = text[..text.IndexOfAny(operators)];
-                    bool test1 = NumberSystemSearch(PartialOne);
-                    if (test1)
-                    {
-                        text = text[text.IndexOfAny(operators)..];
-                        int next = text.IndexOfAny(operators);
-                        switch (next)
-                        {
-                            case -1:
-                                string PartialTwo = text[text.IndexOfAny(operators)..];
-                                bool test2 = NumberSystemSearch(PartialTwo);
-                                if (test2)
-                                {
-                                    Compute(PartialOne, PartialTwo, "Decimal", 0);
-                                }
-                                break;
-                            default:
-                                PartialTwo = text[text.IndexOfAny(operators)..next];
-                                Compute(PartialOne, PartialTwo, "Decimal", 0);
-                                break;
-                        }
-                    }
+                    string RHS = text[(op1 + 1)..];
+                    Compute(LHS, RHS, "Decimal", opvalue);
                 }
-                else if (text != "")
+                catch
                 {
-                    bool test1 = NumberSystemSearch(text);
-                    if (test1)
-                    {
-                        CalcText.Text = text;
-                        Compute(text, "", "Decimal", -1);
-                    }
+                    
                 }
             }
         }

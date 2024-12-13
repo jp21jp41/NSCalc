@@ -1,8 +1,9 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Data;
+using System.Security.Cryptography.X509Certificates;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace WinFormsApp1;
+namespace CalcFormApp;
 
 partial class Form1
 {
@@ -42,6 +43,8 @@ partial class Form1
         SVButton = new Button();
         NumberSystemLabel = new Label();
         ErrorLabel = new Label();
+        TestLabel = new Label();
+        DataSet computedData = new DataSet("Computed Data");
         SuspendLayout();
 
         void DesignButton(Button B, string name, string text,
@@ -128,6 +131,10 @@ partial class Form1
         //
         DesignLabel(ErrorLabel, "ErrorLabel", "No Errors Yet", 700, 40,
             200, 34);
+        //
+        // TestLabel
+        //
+        DesignLabel(TestLabel, "TestLabel", "", 700, 80, 200, 34);
         // 
         // Form1
         // 
@@ -151,6 +158,8 @@ partial class Form1
     private Button SVButton;
     private Label NumberSystemLabel;
     private Label ErrorLabel;
+    private Label TestLabel;
+    private DataSet computedData;
     private TextBox CalcText;
     
     #endregion
